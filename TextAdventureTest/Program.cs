@@ -11,7 +11,7 @@ namespace textAdventure2
         {
             gameTitle();
             string playerName = GetPlayerName();
-            first(playerName);
+            FirstScenario(playerName);
 
         }
 
@@ -30,12 +30,20 @@ namespace textAdventure2
             return name;
         }
 
-        static void first(string playerName)
+        static void FirstScenario(string playerName)
         {
             Console.WriteLine("You awaken in a dark forest.  A path leads north, and a river flows east.");
             Console.WriteLine("Do you go north or east? (north/east)");
             string choice = Console.ReadLine();
 
+            ProcessFirstScenarioChoice(choice);
+
+            Console.ReadLine();
+
+        }
+
+        static void ProcessFirstScenarioChoice(string choice)
+        {
             if (choice.ToLower() == "north")
             {
                 Console.WriteLine("You travel north...");
@@ -48,9 +56,6 @@ namespace textAdventure2
             {
                 Console.WriteLine("Invalid choice.");
             }
-
-            Console.ReadLine();
-
         }
 
     }
