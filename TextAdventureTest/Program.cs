@@ -47,6 +47,16 @@ namespace textAdventure2
             if (choice.ToLower() == "north")
             {
                 Console.WriteLine("You travel north. You encounter a goblin!");
+                Console.WriteLine("The goblin attacks!  Do you fight or run? (fight/run)");
+                string combatChoice = Console.ReadLine();
+                if (combatChoice.ToLower() == "fight")
+                {
+                    Console.WriteLine("You bravely fight the goblin and defeat it!");
+                }
+                else
+                {
+                    Console.WriteLine("You run away from the goblin, escaping back to the forest.");
+                }
             }
             else if (choice.ToLower() == "east")
             {
