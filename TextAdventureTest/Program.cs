@@ -46,7 +46,7 @@ namespace textAdventure2
         {
             if (choice.ToLower() == "north")
             {
-                Console.WriteLine("You travel north...");
+                Console.WriteLine("You travel north. You encounter a goblin!");
             }
             else if (choice.ToLower() == "east")
             {
