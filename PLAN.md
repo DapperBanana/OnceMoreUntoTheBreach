@@ -12,6 +12,6 @@
 
 *   Multiple scenarios and choices.
 *   Inventory system.
-*   Combat system.
+*   Basic combat system implemented for first scenario.
 *   Game over conditions.
 *   Score tracking.
