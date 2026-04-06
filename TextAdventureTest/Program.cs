@@ -30,27 +30,28 @@ namespace textAdventure2
             return name;
         }
 
-
-        public static void first(string playerName)
+        static void first(string playerName)
         {
-            Console.WriteLine("You awaken in a dark forest.");
-            Console.WriteLine("To the north, you see a faint light.");
-            Console.WriteLine("To the east, you hear the sound of running water.");
-            Console.WriteLine("Which way do you go? (north/east)");
+            Console.WriteLine("You awaken in a dark forest.  A path leads north, and a river flows east.");
+            Console.WriteLine("Do you go north or east? (north/east)");
             string choice = Console.ReadLine();
 
             if (choice.ToLower() == "north")
             {
-                Console.WriteLine("You head towards the light...");
+                Console.WriteLine("You travel north...");
             }
             else if (choice.ToLower() == "east")
             {
-                Console.WriteLine("You follow the sound of water...");
+                Console.WriteLine("You follow the river east...");
             }
             else
             {
-                Console.WriteLine("Invalid choice. You remain in the forest.");
+                Console.WriteLine("Invalid choice.");
             }
+
+            Console.ReadLine();
+
         }
+
     }
 }
