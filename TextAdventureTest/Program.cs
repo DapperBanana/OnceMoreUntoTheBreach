@@ -50,7 +50,7 @@ namespace textAdventure2
             }
             else if (choice.ToLower() == "east")
             {
-                Console.WriteLine("You follow the river east...");
+                Console.WriteLine("You follow the river east. You find a small boat.");
             }
             else
             {
