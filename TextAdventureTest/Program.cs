@@ -12,6 +12,7 @@ namespace textAdventure2
             gameTitle();
             string playerName = GetPlayerName();
             FirstScenario(playerName);
+            SecondScenario(playerName);
 
         }
 
@@ -38,7 +39,6 @@ namespace textAdventure2
 
             ProcessFirstScenarioChoice(choice);
 
-            Console.ReadLine();
 
         }
 
@@ -66,6 +66,29 @@ namespace textAdventure2
             {
                 Console.WriteLine("Invalid choice.");
             }
+        }
+
+        static void SecondScenario(string playerName)
+        {
+            Console.WriteLine("You come to a crossroads.  One path leads to a town, the other to a mountain.");
+            Console.WriteLine("Do you go to the town or the mountain? (town/mountain)");
+            string choice = Console.ReadLine();
+
+            if (choice.ToLower() == "town")
+            {
+                Console.WriteLine("You head to the town...");
+            }
+            else if (choice.ToLower() == "mountain")
+            {
+                Console.WriteLine("You climb the mountain...");
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice.");
+            }
+
+            Console.ReadLine();
+
         }
 
     }
