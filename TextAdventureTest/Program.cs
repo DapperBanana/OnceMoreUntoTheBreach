@@ -20,6 +20,7 @@ namespace textAdventure2
             string playerName = GetPlayerName();
             FirstScenario(playerName);
             SecondScenario(playerName);
+            ThirdScenario(playerName);
 
         }
 
@@ -85,6 +86,24 @@ namespace textAdventure2
             else
             {
                 Console.WriteLine("Invalid choice. You wander around in confusion.");
+            }
+        }
+
+        public static void ThirdScenario(string playerName)
+        {
+            Console.WriteLine("You enter a small village, " + playerName + ".");
+            Console.WriteLine("You hear rumors of a dragon in a nearby cave.");
+            Console.WriteLine("Do you investigate the cave? (" + Yes + "/" + No + ")");
+
+            string choice = Console.ReadLine();
+
+            if (choice.ToLower() == Yes)
+            {
+                Console.WriteLine("You bravely enter the cave...");
+            }
+            else
+            {
+                Console.WriteLine("You decide it's best to avoid the dragon.");
             }
         }
 
