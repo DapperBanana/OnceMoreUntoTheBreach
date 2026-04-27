@@ -27,69 +27,84 @@ namespace textAdventure2
         {
             Console.WriteLine("What is your name, adventurer?");
             string name = Console.ReadLine();
-            Console.WriteLine($"Welcome, {name}!");
+
+            while (string.IsNullOrEmpty(name))
+            {
+                Console.WriteLine("Please enter a valid name:");
+                name = Console.ReadLine();
+            }
+
             return name;
         }
 
-        static void FirstScenario(string playerName)
+        public static void FirstScenario(string playerName)
         {
-            Console.WriteLine("You awaken in a dark forest.  A path leads north, and a river flows east.");
-            Console.WriteLine("Do you go north or east? (north/east)");
+            Console.WriteLine("You are standing in a dark forest, " + playerName + ".");
+            Console.WriteLine("You see a path to the north and a path to the east.");
+            Console.WriteLine("Which path do you choose? (north/east)");
+
             string choice = Console.ReadLine();
 
-            ProcessFirstScenarioChoice(choice);
-
-
-        }
-
-        static void ProcessFirstScenarioChoice(string choice)
-        {
             if (choice.ToLower() == "north")
             {
-                Console.WriteLine("You travel north. You encounter a goblin!");
-                Console.WriteLine("The goblin attacks!  Do you fight or run? (fight/run)");
-                string combatChoice = Console.ReadLine();
-                if (combatChoice.ToLower() == "fight")
-                {
-                    Console.WriteLine("You bravely fight the goblin and defeat it!");
-                }
-                else
-                {
-                    Console.WriteLine("You run away from the goblin, escaping back to the forest.");
-                }
+                NorthScenario(playerName);
             }
             else if (choice.ToLower() == "east")
             {
-                Console.WriteLine("You follow the river east. You find a small boat.");
+                EastScenario();
             }
             else
             {
-                Console.WriteLine("Invalid choice.");
+                Console.WriteLine("Invalid choice. You stumble around aimlessly.");
             }
         }
 
-        static void SecondScenario(string playerName)
+        public static void SecondScenario(string playerName)
         {
-            Console.WriteLine("You come to a crossroads.  One path leads to a town, the other to a mountain.");
-            Console.WriteLine("Do you go to the town or the mountain? (town/mountain)");
+            Console.WriteLine("You find yourself at a crossroads, " + playerName + ".");
+            Console.WriteLine("To the west, you see a shimmering lake. To the south, a towering mountain.");
+            Console.WriteLine("Which way do you go? (west/south)");
+
             string choice = Console.ReadLine();
 
-            if (choice.ToLower() == "town")
+            if (choice.ToLower() == "west")
             {
-                Console.WriteLine("You head to the town...");
+                Console.WriteLine("You approach the lake and see a beautiful mermaid.");
             }
-            else if (choice.ToLower() == "mountain")
+            else if (choice.ToLower() == "south")
             {
-                Console.WriteLine("You climb the mountain...");
+                Console.WriteLine("You begin to climb the mountain. It's a long and arduous journey.");
             }
             else
             {
-                Console.WriteLine("Invalid choice.");
+                Console.WriteLine("Invalid choice. You wander around in confusion.");
             }
-
-            Console.ReadLine();
-
         }
+
+        static void NorthScenario(string playerName)
+        {
+            Console.WriteLine("You travel north and encounter a friendly goblin.");
+            Console.WriteLine("The goblin offers you a magic sword.");
+            Console.WriteLine("Do you accept the sword? (yes/no)");
+
+            string swordChoice = Console.ReadLine();
+
+            if (swordChoice.ToLower() == "yes")
+            {
+                Console.WriteLine("You accept the sword and feel a surge of power!");
+            }
+            else
+            {
+                Console.WriteLine("You decline the sword. The goblin seems disappointed.");
+            }
+        }
+
+        static void EastScenario()
+        {
+            Console.WriteLine("You travel east and fall into a pit!");
+            Console.WriteLine("It's dark and damp. You can't see a way out.");
+        }
+
 
     }
 }
