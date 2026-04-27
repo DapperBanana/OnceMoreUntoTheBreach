@@ -7,6 +7,13 @@ namespace textAdventure2
 {
     class Program
     {
+        private const string North = "north";
+        private const string East = "east";
+        private const string West = "west";
+        private const string South = "south";
+        private const string Yes = "yes";
+        private const string No = "no";
+
         static void Main(string[] args)
         {
             gameTitle();
@@ -40,16 +47,16 @@ namespace textAdventure2
         public static void FirstScenario(string playerName)
         {
             Console.WriteLine("You are standing in a dark forest, " + playerName + ".");
-            Console.WriteLine("You see a path to the north and a path to the east.");
-            Console.WriteLine("Which path do you choose? (north/east)");
+            Console.WriteLine("You see a path to the " + North + " and a path to the " + East + ".");
+            Console.WriteLine("Which path do you choose? (" + North + "/" + East + ")");
 
             string choice = Console.ReadLine();
 
-            if (choice.ToLower() == "north")
+            if (choice.ToLower() == North)
             {
                 NorthScenario(playerName);
             }
-            else if (choice.ToLower() == "east")
+            else if (choice.ToLower() == East)
             {
                 EastScenario();
             }
@@ -62,16 +69,16 @@ namespace textAdventure2
         public static void SecondScenario(string playerName)
         {
             Console.WriteLine("You find yourself at a crossroads, " + playerName + ".");
-            Console.WriteLine("To the west, you see a shimmering lake. To the south, a towering mountain.");
-            Console.WriteLine("Which way do you go? (west/south)");
+            Console.WriteLine("To the " + West + ", you see a shimmering lake. To the " + South + ", a towering mountain.");
+            Console.WriteLine("Which way do you go? (" + West + "/" + South + ")");
 
             string choice = Console.ReadLine();
 
-            if (choice.ToLower() == "west")
+            if (choice.ToLower() == West)
             {
                 Console.WriteLine("You approach the lake and see a beautiful mermaid.");
             }
-            else if (choice.ToLower() == "south")
+            else if (choice.ToLower() == South)
             {
                 Console.WriteLine("You begin to climb the mountain. It's a long and arduous journey.");
             }
@@ -85,11 +92,11 @@ namespace textAdventure2
         {
             Console.WriteLine("You travel north and encounter a friendly goblin.");
             Console.WriteLine("The goblin offers you a magic sword.");
-            Console.WriteLine("Do you accept the sword? (yes/no)");
+            Console.WriteLine("Do you accept the sword? (" + Yes + "/" + No + ")");
 
             string swordChoice = Console.ReadLine();
 
-            if (swordChoice.ToLower() == "yes")
+            if (swordChoice.ToLower() == Yes)
             {
                 Console.WriteLine("You accept the sword and feel a surge of power!");
             }
