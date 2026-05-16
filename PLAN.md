@@ -3,15 +3,22 @@
 ## Core Game Loop
 
 1.  Display game title and introduction.
-2.  Get player's name.
+2.  Get player's name (with validation).
 3.  Present the first scenario.
 4.  Get player's choice.
 5.  Process the choice and display the outcome.
+6.  Present the second scenario.
+7.  Present the third scenario.
+8.  Present the fourth scenario.
 
 ## Planned Features
 
 *   Multiple scenarios and choices.
 *   Inventory system.
-*   Basic combat system implemented for first scenario.
+*   Combat system.
 *   Game over conditions.
 *   Score tracking.
+
+## Refactoring
+
+*   Moved scenarios to `Scenarios.cs`
