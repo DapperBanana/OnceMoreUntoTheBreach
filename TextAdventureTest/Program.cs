@@ -21,6 +21,7 @@ namespace textAdventure2
             FirstScenario(playerName);
             SecondScenario(playerName);
             ThirdScenario(playerName);
+            FourthScenario(playerName);
 
         }
 
@@ -142,6 +143,30 @@ namespace textAdventure2
             else
             {
                 Console.WriteLine("Invalid choice. You hesitate, unsure of what to do.");
+            }
+        }
+
+        static void FourthScenario(string playerName)
+        {
+            Console.WriteLine($"\n{playerName}, you are walking and see a hooded figure in the distance. As you approach closer, the figure vanishes.");
+            Console.WriteLine("You notice a small object where the figure once stood.");
+            Console.WriteLine("Do you pick it up, or ignore it? (pickup/ignore)");
+
+            string choice = Console.ReadLine().ToLower();
+
+            if (choice == "pickup")
+            {
+                Console.WriteLine("You pick up the object. It is a small, ornate key.");
+                Console.WriteLine("Perhaps it unlocks something important...");
+            }
+            else if (choice == "ignore")
+            {
+                Console.WriteLine("You decide to ignore the object and continue on your path.");
+                Console.WriteLine("You wonder what it could have been, but you move on.");
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. You hesitate and the moment passes.");
             }
         }
 
