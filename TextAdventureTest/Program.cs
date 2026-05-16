@@ -24,113 +24,177 @@ namespace textAdventure2
 
         }
 
-        public static void gameTitle()
+        static void gameTitle()
         {
-            Console.WriteLine("Hey this in the beginning of a text adventure game.");
-            Console.WriteLine("Press 'Enter' to begin.");
-            Console.ReadLine();
+            Console.WriteLine("Welcome to the Text Adventure Game!");
+            Console.WriteLine("----------------------------------");
         }
 
         static string GetPlayerName()
         {
-            Console.WriteLine("What is your name, adventurer?");
+            Console.Write("Enter your name: ");
             string name = Console.ReadLine();
 
-            while (string.IsNullOrEmpty(name))
+            while (string.IsNullOrWhiteSpace(name))
             {
-                Console.WriteLine("Please enter a valid name:");
+                Console.WriteLine("Name cannot be empty. Please enter your name: ");
                 name = Console.ReadLine();
             }
-
             return name;
         }
 
-        public static void FirstScenario(string playerName)
+        static void FirstScenario(string playerName)
         {
-            Console.WriteLine("You are standing in a dark forest, " + playerName + ".");
-            Console.WriteLine("You see a path to the " + North + " and a path to the " + East + ".");
-            Console.WriteLine("Which path do you choose? (" + North + "/" + East + ")");
+            Console.WriteLine($"\n{playerName}, you find yourself at a crossroads.");
+            Console.WriteLine("A dark forest lies to the north, a shimmering lake to the east, and a field of wheat to the west.");
+            Console.WriteLine("Which way do you go? (north/east/west/south)");
 
-            string choice = Console.ReadLine();
+            string choice = Console.ReadLine().ToLower();
 
-            if (choice.ToLower() == North)
+            if (choice == North)
             {
-                NorthScenario(playerName);
+                Console.WriteLine("You enter the dark forest. The trees loom tall and menacing.");
+                Console.WriteLine("A goblin jumps out from behind a tree!\n");
+                GoblinEncounter(playerName);
+
             }
-            else if (choice.ToLower() == East)
+            else if (choice == East)
             {
-                EastScenario();
+                Console.WriteLine("You approach the shimmering lake. The water looks inviting.");
+                Console.WriteLine("Do you want to take a swim? (yes/no)");
+                string swimChoice = Console.ReadLine().ToLower();
+
+                if (swimChoice == Yes)
+                {
+                    Console.WriteLine("You dive into the lake and feel refreshed. You find a hidden treasure chest!");
+                    Console.WriteLine("Congratulations, you found treasure!");
+                }
+                else if (swimChoice == No)
+                {
+                    Console.WriteLine("You decide not to swim and continue on your journey.");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid choice. You hesitate and decide to move on.");
+                }
+            }
+            else if (choice == West)
+            {
+                Console.WriteLine("You enter a field of wheat. The wind whispers through the stalks.");
+                Console.WriteLine("You see a scarecrow in the distance. As you approach, it starts to move!\n");
+                ScarecrowEncounter(playerName);
+
+            }
+            else if (choice == South)
+            {
+                Console.WriteLine("You head south and find a path leading back to town. It seems safe.");
+                Console.WriteLine("You arrive at the town safely.");
             }
             else
             {
-                Console.WriteLine("Invalid choice. You stumble around aimlessly.");
+                Console.WriteLine("Invalid direction. You wander aimlessly.");
             }
         }
 
-        public static void SecondScenario(string playerName)
+        static void SecondScenario(string playerName)
         {
-            Console.WriteLine("You find yourself at a crossroads, " + playerName + ".");
-            Console.WriteLine("To the " + West + ", you see a shimmering lake. To the " + South + ", a towering mountain.");
-            Console.WriteLine("Which way do you go? (" + West + "/" + South + ")");
+            Console.WriteLine($"\n{playerName}, you come across a rickety bridge over a deep ravine.");
+            Console.WriteLine("Do you dare to cross, or find another way? (cross/another)");
 
-            string choice = Console.ReadLine();
+            string choice = Console.ReadLine().ToLower();
 
-            if (choice.ToLower() == West)
+            if (choice == "cross")
             {
-                Console.WriteLine("You approach the lake and see a beautiful mermaid.");
+                Console.WriteLine("You carefully cross the bridge. Halfway across, a plank breaks!");
+                Console.WriteLine("You manage to grab onto the side and pull yourself to safety.");
+                Console.WriteLine("You made it across, but it was a close call!");
             }
-            else if (choice.ToLower() == South)
+            else if (choice == "another")
             {
-                Console.WriteLine("You begin to climb the mountain. It's a long and arduous journey.");
+                Console.WriteLine("You decide to find another way around. After hours of searching, you find a safer path.");
+                Console.WriteLine("You lose valuable time, but you avoid the dangerous bridge.");
             }
             else
             {
-                Console.WriteLine("Invalid choice. You wander around in confusion.");
+                Console.WriteLine("Invalid choice. You stand there, indecisive.");
             }
         }
 
-        public static void ThirdScenario(string playerName)
+        static void ThirdScenario(string playerName)
         {
-            Console.WriteLine("You enter a small village, " + playerName + ".");
-            Console.WriteLine("You hear rumors of a dragon in a nearby cave.");
-            Console.WriteLine("Do you investigate the cave? (" + Yes + "/" + No + ")");
+            Console.WriteLine($"\n{playerName}, you enter a mysterious cave.");
+            Console.WriteLine("The air is cold and damp. You hear strange noises echoing within.");
+            Console.WriteLine("Do you proceed deeper, or turn back? (deeper/back)");
 
-            string choice = Console.ReadLine();
+            string choice = Console.ReadLine().ToLower();
 
-            if (choice.ToLower() == Yes)
+            if (choice == "deeper")
             {
-                Console.WriteLine("You bravely enter the cave...");
+                Console.WriteLine("You venture deeper into the cave. The darkness surrounds you.");
+                Console.WriteLine("Suddenly, you stumble upon a hidden chamber!");
+                Console.WriteLine("Inside, you find an ancient artifact. Congratulations!");
+            }
+            else if (choice == "back")
+            {
+                Console.WriteLine("You decide to turn back. The cave feels too dangerous.");
+                Console.WriteLine("You leave the cave and continue your journey elsewhere.");
             }
             else
             {
-                Console.WriteLine("You decide it's best to avoid the dragon.");
+                Console.WriteLine("Invalid choice. You hesitate, unsure of what to do.");
             }
         }
 
-        static void NorthScenario(string playerName)
+        static void GoblinEncounter(string playerName)
         {
-            Console.WriteLine("You travel north and encounter a friendly goblin.");
-            Console.WriteLine("The goblin offers you a magic sword.");
-            Console.WriteLine("Do you accept the sword? (" + Yes + "/" + No + ")");
+            Console.WriteLine("The goblin snarls and attacks!");
+            Console.WriteLine("Do you fight or run? (fight/run)");
 
-            string swordChoice = Console.ReadLine();
+            string choice = Console.ReadLine().ToLower();
 
-            if (swordChoice.ToLower() == Yes)
+            if (choice == "fight")
             {
-                Console.WriteLine("You accept the sword and feel a surge of power!");
+                Console.WriteLine("You bravely fight the goblin!\n");
+                Console.WriteLine("You swing your trusty sword and strike the goblin!");
+                Console.WriteLine("With a final blow, you defeat the goblin!\n");
+                Console.WriteLine("You gain experience and find a small pouch of gold!\n");
+            }
+            else if (choice == "run")
+            {
+                Console.WriteLine("You attempt to run away from the goblin!");
+                Console.WriteLine("You narrowly escape the goblin's grasp.\n");
+                Console.WriteLine("You lose some ground but avoid a direct confrontation.\n");
             }
             else
             {
-                Console.WriteLine("You decline the sword. The goblin seems disappointed.");
+                Console.WriteLine("Invalid choice. The goblin takes advantage of your hesitation and attacks!");
+                Console.WriteLine("You suffer a blow but manage to defend yourself.");
             }
         }
 
-        static void EastScenario()
+        static void ScarecrowEncounter(string playerName)
         {
-            Console.WriteLine("You travel east and fall into a pit!");
-            Console.WriteLine("It's dark and damp. You can't see a way out.");
+            Console.WriteLine("The scarecrow creaks and begins to swing its arms!");
+            Console.WriteLine("Do you approach cautiously or try to sneak around? (approach/sneak)");
+
+            string choice = Console.ReadLine().ToLower();
+
+            if (choice == "approach")
+            {
+                Console.WriteLine("You approach the scarecrow cautiously!\n");
+                Console.WriteLine("As you get closer, you realize it's just an animated construct.");
+                Console.WriteLine("You disable it easily and continue through the field.\n");
+            }
+            else if (choice == "sneak")
+            {
+                Console.WriteLine("You try to sneak around the scarecrow!");
+                Console.WriteLine("The scarecrow's head turns, and it spots you.\n");
+                Console.WriteLine("It begins to move towards you, blocking your path.\n");
+            }
+            else
+            {
+                Console.WriteLine("Invalid choice. The scarecrow continues to block your path.\n");
+            }
         }
-
-
     }
 }
